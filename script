@@ -1,3 +1,0 @@
-function cambiarTexto() {
-    document.getElementById("texto").textContent = "¡Has pulsado el botón!";
-}
