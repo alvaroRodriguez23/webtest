@@ -39,14 +39,31 @@ body {
     pointer-events: none;
 }
 
-.decoracion-1 { top: 12%; left: 7%; }
-.decoracion-2 { top: 42%; right: 5%; }
-.decoracion-3 { bottom: 20%; left: 4%; }
-.decoracion-4 { top: 70%; right: 9%; font-size: 30px; }
+.decoracion-1 {
+    top: 12%;
+    left: 7%;
+}
+
+.decoracion-2 {
+    top: 42%;
+    right: 5%;
+}
+
+.decoracion-3 {
+    bottom: 20%;
+    left: 4%;
+}
+
+.decoracion-4 {
+    top: 70%;
+    right: 9%;
+    font-size: 30px;
+}
 
 /* =========================
    SOBRE
 ========================= */
+
 .sobre-pantalla {
     position: fixed;
     inset: 0;
@@ -54,7 +71,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at center, #1b1a15, #080808 70%);
+    background:
+        radial-gradient(circle at 50% 35%, #24231d 0%, #11110e 45%, #070707 100%);
     transition: opacity 1s ease, visibility 1s ease;
 }
 
@@ -65,102 +83,328 @@ body {
 }
 
 .sobre-intro {
+    position: relative;
+    width: min(430px, 90vw);
     text-align: center;
 }
 
+/* TEXTO SUPERIOR */
+
 .pequeno-texto {
-    margin-bottom: 35px;
-    color: #77736a;
+    margin-bottom: 32px;
+    color: #a89c80;
     font-family: Arial, sans-serif;
     font-size: 8px;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
 }
+
+/* SOBRE */
 
 .sobre {
     position: relative;
-    width: min(330px, 78vw);
-    height: min(220px, 52vw);
+    width: min(350px, 82vw);
+    height: min(235px, 55vw);
+    margin: 0 auto;
     cursor: pointer;
-    perspective: 1000px;
-    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.55));
+    perspective: 1200px;
+
+    filter:
+        drop-shadow(0 30px 35px rgba(0, 0, 0, 0.55))
+        drop-shadow(0 8px 10px rgba(0, 0, 0, 0.25));
 }
+
+/* CUERPO */
 
 .sobre-cuerpo {
     position: absolute;
     inset: 0;
-    background: linear-gradient(145deg, #e6dece, #cfc5b2);
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee7d8 0%,
+            #ddd3c0 45%,
+            #cfc3ae 100%
+        );
+
+    border: 1px solid rgba(130, 110, 65, 0.45);
+
+    box-shadow:
+        inset 0 0 0 5px rgba(255, 255, 255, 0.12),
+        inset 0 0 30px rgba(80, 65, 35, 0.08);
 }
+
+/* BRILLO */
+
+.sobre-brillo {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 25%,
+            rgba(255, 255, 255, 0.20) 45%,
+            transparent 65%
+        );
+
+    opacity: 0.35;
+}
+
+/* TRIÁNGULOS LATERALES */
 
 .sobre-lado {
     position: absolute;
     bottom: 0;
     width: 0;
     height: 0;
-    z-index: 3;
+    z-index: 4;
 }
 
 .sobre-lado-izq {
     left: 0;
-    border-left: 165px solid #d8cebd;
-    border-top: 110px solid transparent;
+    border-left: 175px solid #d8cebc;
+    border-top: 118px solid transparent;
+    filter: brightness(0.98);
 }
 
 .sobre-lado-der {
     right: 0;
-    border-right: 165px solid #d8cebd;
-    border-top: 110px solid transparent;
+    border-right: 175px solid #d8cebc;
+    border-top: 118px solid transparent;
+    filter: brightness(0.98);
 }
+
+/* SOLAPA */
 
 .sobre-solapa {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 58%;
-    z-index: 5;
-    background: #e9e1d1;
+    height: 60%;
+    z-index: 7;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f1eadc 0%,
+            #e4dac8 60%,
+            #d7cbb7 100%
+        );
+
     clip-path: polygon(0 0, 100% 0, 50% 100%);
+
     transform-origin: top;
-    transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    transition:
+        transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .sobre.abriendo .sobre-solapa {
     transform: rotateX(180deg);
 }
 
+/* BORDE DECORATIVO INTERIOR */
+
+.sobre::after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    z-index: 9;
+
+    border: 1px solid rgba(142, 118, 23, 0.22);
+
+    pointer-events: none;
+}
+
+/* SELLO */
+
 .sello {
     position: absolute;
-    z-index: 10;
+    z-index: 15;
+
     left: 50%;
-    top: 50%;
+    top: 51%;
+
     transform: translate(-50%, -10%);
-    width: 45px;
-    height: 45px;
+
+    width: 58px;
+    height: 58px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 50%;
-    background: #c3a31b;
-    color: #6d5910;
-    font-size: 18px;
-    transition: opacity 0.4s ease, transform 0.7s ease;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #d7bd45,
+            #b49618 55%,
+            #8c7210 100%
+        );
+
+    border: 2px solid rgba(104, 82, 7, 0.5);
+
+    color: #67520a;
+    font-size: 21px;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.22),
+        inset 0 2px 3px rgba(255, 255, 255, 0.25),
+        inset 0 -3px 5px rgba(70, 50, 0, 0.18);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.7s ease;
+}
+
+.sello span {
+    transform: rotate(-8deg);
 }
 
 .sobre.abriendo .sello {
     opacity: 0;
-    transform: translate(-50%, -10%) scale(0.5);
+    transform: translate(-50%, -10%) scale(0.45) rotate(20deg);
 }
 
-.abrir-texto {
-    margin-top: 30px;
-    color: #66635c;
-    font-family: Arial, sans-serif;
-    font-size: 9px;
-    letter-spacing: 3px;
+/* DETALLES */
+
+.sobre-detalle {
+    position: absolute;
+    z-index: 11;
+
+    color: #9d8420;
+    opacity: 0.65;
+
+    pointer-events: none;
+}
+
+.sobre-detalle-1 {
+    top: 17px;
+    left: 20px;
+    font-size: 10px;
+}
+
+.sobre-detalle-2 {
+    bottom: 18px;
+    left: 50%;
+    font-size: 16px;
+    transform: translateX(-50%);
+}
+
+.sobre-detalle-3 {
+    top: 17px;
+    right: 20px;
+    font-size: 10px;
+}
+
+/* MENSAJE */
+
+.mensaje-sobre {
+    margin-top: 28px;
+}
+
+.mensaje-principal {
+    color: #c2aa48;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.mensaje-secundario {
+    margin-top: 8px;
+
+    color: #77736a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+
+    opacity: 0.8;
+}
+
+/* TEXTO DE PULSAR */
+
+.abrir-texto {
+    margin-top: 28px;
+
+    color: #817c70;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
     animation: respirar 2.5s ease-in-out infinite;
 }
 
+/* =========================
+   MÓVIL - SOBRE
+========================= */
+
+@media (max-width: 600px) {
+
+    .sobre-intro {
+        width: 100%;
+    }
+
+    .pequeno-texto {
+        margin-bottom: 27px;
+        font-size: 7px;
+        letter-spacing: 5px;
+    }
+
+    .sobre {
+        width: 82vw;
+        height: 52vw;
+        max-width: 350px;
+        max-height: 235px;
+    }
+
+    .sobre-lado-izq {
+        border-left-width: calc(41vw);
+        border-top-width: calc(26vw);
+    }
+
+    .sobre-lado-der {
+        border-right-width: calc(41vw);
+        border-top-width: calc(26vw);
+    }
+
+    .sello {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .mensaje-sobre {
+        margin-top: 25px;
+    }
+
+    .mensaje-principal {
+        font-size: 15px;
+        letter-spacing: 1.5px;
+    }
+
+    .mensaje-secundario {
+        font-size: 11px;
+    }
+
+    .abrir-texto {
+        margin-top: 24px;
+    }
+}
 /* =========================
    CARTA
 ========================= */
@@ -211,7 +455,12 @@ body {
     z-index: 2;
     pointer-events: none;
     opacity: 0.25;
-    background: repeating-linear-gradient(0deg, transparent 0, transparent 4px, rgba(80, 70, 50, 0.018) 5px);
+    background: repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 4px,
+        rgba(80, 70, 50, 0.018) 5px
+    );
 }
 
 .papel::after {
@@ -223,7 +472,11 @@ body {
     height: 240px;
     z-index: 2;
     pointer-events: none;
-    background: radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.4), transparent 70%);
+    background: radial-gradient(
+        ellipse at 50% 0,
+        rgba(255, 255, 255, 0.4),
+        transparent 70%
+    );
 }
 
 /* =========================
@@ -240,8 +493,14 @@ body {
 /* =========================
    TEXTO
 ========================= */
-.saludo { margin-bottom: 55px; }
-.saludo p { font-size: 30px; color: #25241f; }
+.saludo {
+    margin-bottom: 55px;
+}
+
+.saludo p {
+    font-size: 30px;
+    color: #25241f;
+}
 
 .parrafo {
     margin-bottom: 38px;
@@ -276,7 +535,7 @@ body {
    CORAZÓN
 ========================= */
 .foto-corazon {
-    position: relative; 
+    position: relative;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -287,18 +546,19 @@ body {
 .foto-corazon img {
     width: 38px;
     object-fit: contain;
-    opacity: 1; /* OPACIDAD AL 100% */
+    opacity: 1;
     filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.15));
     animation: corazon-flota 4s ease-in-out infinite;
 }
 
+/* Ambos corazones tienen el mismo tamaño */
 .foto-corazon.pequeno {
-    height: 45px;
-    margin: 0 0 35px;
+    height: 80px;
+    margin: 15px 0 35px;
 }
 
 .foto-corazon.pequeno img {
-    width: 26px;
+    width: 38px;
 }
 
 .mensaje-corazon {
@@ -322,38 +582,39 @@ body {
     animation: aparecer-flotar 4s ease-in-out infinite;
 }
 
-.detalle-margen.derecha { margin-left: 0; margin-right: -45px; }
-.detalle-margen.derecha span { right: 0; }
+.detalle-margen.derecha {
+    margin-left: 0;
+    margin-right: -45px;
+}
+
+.detalle-margen.derecha span {
+    right: 0;
+}
 
 /* =========================
-   OBSESSION (DISEÑO POLAROID)
+   OBSESSION
+   SIN MARCO BLANCO
 ========================= */
 .recuerdo {
     position: relative;
     margin: 75px auto;
     width: 85%;
-    padding: 15px 15px 30px 15px; /* Marco blanco */
+    padding: 0;
     text-align: center;
-    background: #fdfbf7; /* Blanco crema */
-    border-radius: 4px;
-    border: 1px solid #dfd8c8;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.15),
-        0 4px 10px rgba(0, 0, 0, 0.05);
-    transform: rotate(-1.5deg); /* Ligera rotación */
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transform: rotate(-1.5deg);
+    transition: transform 0.5s ease;
 }
 
 .recuerdo:hover {
-    transform: rotate(0deg) scale(1.02); /* Se endereza al pasar el ratón */
-    box-shadow: 
-        0 25px 45px rgba(0, 0, 0, 0.2),
-        0 8px 15px rgba(0, 0, 0, 0.08);
+    transform: rotate(0deg) scale(1.02);
 }
 
-.recuerdo-foto { 
-    width: 100%; 
-    overflow: hidden; 
+.recuerdo-foto {
+    width: 100%;
+    overflow: hidden;
     border-radius: 2px;
 }
 
@@ -361,7 +622,7 @@ body {
     display: block;
     width: 100%;
     height: auto;
-    opacity: 1; /* Sin transparencia */
+    opacity: 1;
     transition: transform 1.2s ease;
 }
 
@@ -369,13 +630,13 @@ body {
     transform: scale(1.035);
 }
 
-.recuerdo-contenido { 
-    padding-top: 22px; 
+.recuerdo-contenido {
+    padding-top: 22px;
 }
 
 .recuerdo-pequeno {
     margin-bottom: 12px;
-    font-family: "Courier New", Courier, monospace; /* Fuente de máquina de escribir */
+    font-family: "Courier New", Courier, monospace;
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -411,10 +672,43 @@ body {
     font-size: 9px;
 }
 
+/* Separadores más grandes */
+.separador-grande {
+    margin: 100px 0;
+}
+
+.separador-grande span:not(.punto) {
+    width: 70px;
+}
+
+.separador-grande .punto {
+    font-size: 11px;
+}
+
+/* =========================
+   FOTO DEL COCHE
+========================= */
+.foto-coche {
+    width: 100%;
+    margin: 55px auto 65px;
+    text-align: center;
+}
+
+.foto-coche img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
 /* =========================
    FRASE FINAL
 ========================= */
-.frase-final { margin: 100px 0; text-align: center; }
+.frase-final {
+    margin: 100px 0;
+    text-align: center;
+}
 
 .frase-final p {
     margin-bottom: 10px;
@@ -436,12 +730,17 @@ body {
     background: #a58a20;
 }
 
-.frase-linea:last-child { margin: 30px auto 0; }
+.frase-linea:last-child {
+    margin: 30px auto 0;
+}
 
 /* =========================
    DESPEDIDA
 ========================= */
-.despedida { padding: 90px 0 80px; text-align: center; }
+.despedida {
+    padding: 90px 0 80px;
+    text-align: center;
+}
 
 .corazon-final {
     margin-bottom: 25px;
@@ -487,6 +786,25 @@ body {
 }
 
 /* =========================
+   VIDEO FINAL
+========================= */
+.video-final {
+    width: 100%;
+    margin: 80px auto 30px;
+    text-align: center;
+}
+
+.video-final video {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================
    DECORACIÓN
 ========================= */
 .margen-decorativo {
@@ -500,10 +818,25 @@ body {
     gap: 12px;
 }
 
-.margen-decorativo span { flex: 1; height: 1px; background: #c9beab; }
-.margen-decorativo i { color: #a78a1c; font-size: 8px; font-style: normal; }
-.margen-top { padding-top: 55px; }
-.margen-bottom { padding-bottom: 55px; }
+.margen-decorativo span {
+    flex: 1;
+    height: 1px;
+    background: #c9beab;
+}
+
+.margen-decorativo i {
+    color: #a78a1c;
+    font-size: 8px;
+    font-style: normal;
+}
+
+.margen-top {
+    padding-top: 55px;
+}
+
+.margen-bottom {
+    padding-bottom: 55px;
+}
 
 /* =========================
    ANIMACIONES DEL TEXTO
@@ -511,7 +844,9 @@ body {
 .aparecer {
     opacity: 0;
     transform: translateY(25px);
-    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .aparecer.visible {
@@ -523,47 +858,108 @@ body {
    ANIMACIONES
 ========================= */
 @keyframes latido {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.18); }
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
 }
 
 @keyframes respirar {
-    0%, 100% { opacity: 0.45; }
-    50% { opacity: 1; }
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 @keyframes aparecer-flotar {
-    0%, 100% { transform: translateY(0); opacity: 0.4; }
-    50% { transform: translateY(-6px); opacity: 0.8; }
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-6px);
+        opacity: 0.8;
+    }
 }
 
 @keyframes corazon-flota {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-7px) rotate(2deg); }
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(2deg);
+    }
 }
 
 /* =========================
    MÓVIL
 ========================= */
 @media (max-width: 600px) {
-    .papel { width: 100%; }
-    .contenido { width: calc(100% - 48px); padding: 70px 0 60px; }
-    .parrafo { margin-bottom: 34px; font-size: 16px; line-height: 1.85; }
-    .saludo p { font-size: 28px; }
-    
-    /* RECUERDO (POLAROID) EN MÓVIL */
-    .recuerdo { 
-        margin: 60px auto; 
-        width: 95%; 
-        padding: 12px 12px 25px 12px; 
+
+    .papel {
+        width: 100%;
     }
-    
-    .detalle-margen { margin-left: -5px; }
-    .detalle-margen.derecha { margin-right: -5px; }
-    .frase-final { margin: 80px 0; }
-    .margen-decorativo { width: calc(100% - 48px); }
-    .margen-top { padding-top: 35px; }
-    .margen-bottom { padding-bottom: 35px; }
+
+    .contenido {
+        width: calc(100% - 48px);
+        padding: 70px 0 60px;
+    }
+
+    .parrafo {
+        margin-bottom: 34px;
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    .saludo p {
+        font-size: 28px;
+    }
+
+    /* OBSESSION EN MÓVIL */
+    .recuerdo {
+        margin: 60px auto;
+        width: 95%;
+    }
+
+    .detalle-margen {
+        margin-left: -5px;
+    }
+
+    .detalle-margen.derecha {
+        margin-right: -5px;
+    }
+
+    .separador-grande {
+        margin: 85px 0;
+    }
+
+    .separador-grande span:not(.punto) {
+        width: 55px;
+    }
+
+    .frase-final {
+        margin: 80px 0;
+    }
+
+    .margen-decorativo {
+        width: calc(100% - 48px);
+    }
+
+    .margen-top {
+        padding-top: 35px;
+    }
+
+    .margen-bottom {
+        padding-bottom: 35px;
+    }
 
     /* FLORES EN MÓVIL */
     .flores-fondo {
@@ -571,30 +967,48 @@ body {
         background-position: 0 0, 70px 130px, -50px 260px;
         opacity: 0.10;
     }
-    .decoracion-1 { left: 3%; }
-    .decoracion-2 { right: 3%; }
+
+    .decoracion-1 {
+        left: 3%;
+    }
+
+    .decoracion-2 {
+        right: 3%;
+    }
 
     /* MENSAJES DE LOS CORAZONES */
     .mensaje-corazon {
-        display: block; 
+        display: block;
         position: absolute;
-        bottom: -20px; 
+        bottom: -20px;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 16px; /* AUMENTADO EL TAMAÑO DE LA LETRA */
+        font-size: 16px;
         color: #8c7317;
         font-style: italic;
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s; 
+        transition:
+            opacity 0.8s ease 0.6s,
+            transform 0.8s ease 0.6s;
     }
 
     .foto-corazon.pequeno .mensaje-corazon {
-        bottom: -26px; /* Ajuste para que no se pise en el corazón pequeño */
+        bottom: -20px;
     }
 
     .foto-corazon.visible .mensaje-corazon {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    /* VIDEO EN MÓVIL */
+    .video-final {
+        margin: 60px auto 20px;
+    }
+
+    .video-final video {
+        width: 100%;
+        border-radius: 3px;
     }
 }
 
@@ -602,7 +1016,10 @@ body {
    MENOS MOVIMIENTO
 ========================= */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         animation: none !important;
         transition: none !important;
     }
