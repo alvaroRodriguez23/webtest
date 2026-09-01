@@ -1,21 +1,258 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Mi web</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una carta</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Hola mundo</h1>
+    <div class="fondo">
+        <div class="grano"></div>
+        <div class="decoracion decoracion-1">✦</div>
+        <div class="decoracion decoracion-2">♥</div>
+        <div class="decoracion decoracion-3">✦</div>
+        <div class="decoracion decoracion-4">·</div>
+    </div>
 
-    <p id="texto">Mi primera web</p>
+    <!-- SOBRE -->
+    <section id="sobre-pantalla" class="sobre-pantalla">
+        <div class="sobre-intro">
+            <p class="pequeno-texto">PARA TI</p>
+            <div id="sobre" class="sobre">
+                <div class="sobre-cuerpo"></div>
+                <div class="sobre-solapa"></div>
+                <div class="sobre-lado sobre-lado-izq"></div>
+                <div class="sobre-lado sobre-lado-der"></div>
+                <div class="sello">♥</div>
+            </div>
+            <p class="abrir-texto">pulsa para abrir</p>
+        </div>
+    </section>
 
-    <button onclick="cambiarTexto()">Púlsame</button>
+    <!-- CARTA -->
+    <main id="carta" class="carta">
+        <article class="papel">
+
+            <!-- FONDO FLORAL -->
+            <div class="flores-fondo"></div>
+
+            <div class="margen-decorativo margen-top">
+                <span></span>
+                <i>✦</i>
+                <span></span>
+            </div>
+
+            <div class="contenido">
+
+                <div class="saludo aparecer">
+                    <p>Valeria,</p>
+                </div>
+
+                <p class="parrafo aparecer">
+                    No sé muy bien cómo empezar esta carta,
+                    pero creo que lo mejor es decirte todo lo
+                    que siento sin darle demasiadas vueltas.
+                    Hay muchas cosas que durante este tiempo
+                    no he sabido explicarte bien y quería que
+                    pudieras leerlas de mí con calma.
+                </p>
+
+                <p class="parrafo aparecer">
+                    Quiero que sepas que
+                    <span class="subrayado">te quiero muchísimo.</span>
+                    Sé que probablemente no me creas, y entiendo
+                    que después de cómo he hecho algunas cosas
+                    puedas pensar que lo que sentía por ti no era
+                    tan real como te decía. Pero lo era y lo sigue
+                    siendo, aunque muchas veces no haya sabido
+                    demostrarlo como debería.
+                </p>
+
+                <!-- PRIMER CORAZÓN CON MENSAJE -->
+                <div class="foto-corazon aparecer">
+                    <img src="corazon.png" alt="">
+                    <span class="mensaje-corazon">hola :)</span>
+                </div>
+
+                <p class="parrafo aparecer">
+                    También quiero que entiendas por qué no pude
+                    estar contigo como quizá habría querido.
+                    Durante este tiempo yo tampoco estaba bien
+                    conmigo mismo. Tenía muchas cosas en la cabeza
+                    y algunas situaciones personales me estaban
+                    afectando bastante mentalmente.
+                </p>
+
+                <p class="parrafo aparecer">
+                    Por eso sentía que no podía comprometerme
+                    con nadie sin poder estar al cien por cien
+                    para esa persona. Ahora sé que me van a
+                    operar en septiembre, pero durante mucho
+                    tiempo ni siquiera tenía claro cuándo sería
+                    y todo eso también me hacía estar bastante
+                    perdido.
+                </p>
+
+                <div class="detalle-margen aparecer">
+                    <span>✦</span>
+                </div>
+
+                <p class="parrafo aparecer">
+                    Eso no justifica las cosas que hice mal contigo.
+                    Sé que hubo muchas y que tomé decisiones que,
+                    viéndolas ahora, habría hecho de otra manera.
+                    Por todo eso lo siento de verdad. Ojalá hubiese
+                    sabido gestionar algunas situaciones mejor y
+                    expresarte muchas cosas de otra forma.
+                </p>
+
+                <p class="parrafo aparecer">
+                    Me ha encantado involucrarme contigo y poder
+                    conocerte de verdad. Ya nos conocíamos de antes,
+                    pero este tiempo me ha permitido descubrir una
+                    parte de ti que no conocía y darme cuenta de lo
+                    importante que eres para mí.
+                </p>
+
+                <!-- OBSESSION (NUEVO DISEÑO POLAROID) -->
+                <div class="recuerdo aparecer">
+                    <div class="recuerdo-foto">
+                        <img src="obsessionban.png" alt="Obsession">
+                    </div>
+                    <div class="recuerdo-contenido">
+                        <p class="recuerdo-pequeno">un recuerdo que guardo</p>
+                        <div class="recuerdo-corazon">♥</div>
+                    </div>
+                </div>
+
+                <p class="parrafo aparecer">
+                    Y si tengo que quedarme con un momento por
+                    encima de todos, es con aquel día del cine
+                    viendo <em>Obsession</em>. Ese día me sentí tan
+                    a gusto contigo como creo que nunca me había
+                    sentido con nadie.
+                </p>
+
+                <p class="parrafo aparecer">
+                    Estar contigo allí, simplemente compartiendo
+                    ese rato, me hizo sentir una tranquilidad y
+                    una felicidad que hacía mucho que no sentía.
+                    Es un recuerdo que voy a guardar con muchísimo
+                    cariño.
+                </p>
+
+                <p class="parrafo aparecer">
+                    Y también me queda la espina de no haberte
+                    cocinado nunca nada; era algo que quería hacer
+                    contigo y que al final nunca llegué a hacer.
+                </p>
+
+                <div class="separador aparecer">
+                    <span></span>
+                    <span class="punto">♥</span>
+                    <span></span>
+                </div>
+
+                <p class="parrafo aparecer">
+                    Sé que hay otra persona y, aunque para mí es
+                    difícil verte con alguien más porque todavía
+                    te quiero, entiendo tu decisión y la respeto
+                    completamente. De verdad espero que te vaya
+                    genial y que seas feliz.
+                </p>
+
+                <p class="parrafo aparecer">
+                    No escribo esto esperando una contestación,
+                    ni que cambies de opinión, ni para ponerte
+                    ninguna presión. Simplemente quería ser
+                    sincero contigo al 100% y no quedarme en
+                    ese 95% en el que quizá me he quedado muchas
+                    veces por miedo, orgullo o por no saber cómo
+                    decir las cosas.
+                </p>
+
+                <!-- SEGUNDO CORAZÓN CON MENSAJE -->
+                <div class="foto-corazon pequeno aparecer">
+                    <img src="corazon.png" alt="">
+                    <span class="mensaje-corazon">abrazame mas cerca</span>
+                </div>
+
+                <p class="parrafo aparecer">
+                    Quería que supieras realmente lo que siento,
+                    lo importante que eres para mí y todo aquello
+                    de lo que me arrepiento.
+                </p>
+
+                <div class="detalle-margen derecha aparecer">
+                    <span>✦</span>
+                </div>
+
+                <p class="parrafo aparecer">
+                    Y aunque nuestros caminos se separen, quiero
+                    que sepas que puedes contar conmigo para lo
+                    que sea. Si algún día tienes un problema,
+                    necesitas ayuda o estás pasando por un momento
+                    malo, voy a estar.
+                </p>
+
+                <p class="parrafo aparecer">
+                    No porque espere nada a cambio, sino porque
+                    me importas y siempre me va a importar que
+                    estés bien.
+                </p>
+
+                <div class="frase-final aparecer">
+                    <div class="frase-linea"></div>
+                    <p>No cambiaría haberte querido,</p>
+                    <p>aunque pudiera cambiar muchas de las cosas que hice mientras lo hacía.</p>
+                    <div class="frase-linea"></div>
+                </div>
+
+                <p class="parrafo aparecer">
+                    Gracias por todo lo que me has permitido vivir
+                    contigo y por haberme dejado conocerte de esa
+                    manera.
+                </p>
+
+                <p class="parrafo aparecer">
+                    Perdóname por todas las veces en las que no
+                    supe hacerlo bien.
+                </p>
+
+                <div class="despedida aparecer">
+                    <div class="corazon-final">♥</div>
+                    <p>Te quiero muchísimo.</p>
+                    <span>Álvaro</span>
+                </div>
+
+                <div class="posdata aparecer">
+                    <p>
+                        <span>P.D.</span>
+                        La otra carta para tu cumple no es tan
+                        densa emocionalmente, jeje, así que esa
+                        sí ábrela el día de tu cumpleaños.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="margen-decorativo margen-bottom">
+                <span></span>
+                <i>♥</i>
+                <span></span>
+            </div>
+
+        </article>
+
+        <footer class="final-pagina">
+            <span>fin</span>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>
