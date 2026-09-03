@@ -3,12 +3,22 @@ const pantallaSobre = document.getElementById("sobre-pantalla");
 const carta = document.getElementById("carta");
 const elementos = document.querySelectorAll(".aparecer");
 
+/* =========================================
+   SUPABASE
+   ========================================= */
 
-
-
-const SUPABASE_URL = "https://rtbbnjliebmodfdaeves.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://rtbbnjliebmodfdaeves.supabase.co";
 const SUPABASE_KEY = "sb_publishable_FQGkNGgtAEkPcpMdo7iMXA_q-uiMXpH";
 
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+/* =========================================
+   REGISTRAR VISITA
+   ========================================= */
 
 async function registrarVisita() {
     const dispositivo = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
@@ -34,21 +44,26 @@ async function registrarVisita() {
 registrarVisita();
 
 
-const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
+/* =========================================
+   BLOQUEAR SCROLL
+   ========================================= */
 
-/* BLOQUEAR SCROLL */
 document.body.style.overflow = "hidden";
 
-/* ABRIR SOBRE */
+
+/* =========================================
+   ABRIR SOBRE
+   ========================================= */
+
 sobre.addEventListener("click", () => {
     sobre.classList.add("abriendo");
+
     setTimeout(() => {
         pantallaSobre.classList.add("abierto");
         carta.classList.add("visible");
+
         document.body.style.overflow = "auto";
+
         window.scrollTo({
             top: 0,
             behavior: "instant"
@@ -56,7 +71,11 @@ sobre.addEventListener("click", () => {
     }, 950);
 });
 
-/* ANIMACIONES AL HACER SCROLL */
+
+/* =========================================
+   ANIMACIONES AL HACER SCROLL
+   ========================================= */
+
 const observer = new IntersectionObserver(
     (entradas) => {
         entradas.forEach((entrada) => {
@@ -75,7 +94,11 @@ elementos.forEach((elemento) => {
     observer.observe(elemento);
 });
 
-/* CORAZONES INTERACTIVOS */
+
+/* =========================================
+   CORAZONES INTERACTIVOS
+   ========================================= */
+
 const corazones = document.querySelectorAll(
     ".corazon-final, .recuerdo-corazon, .foto-corazon img"
 );
@@ -83,13 +106,18 @@ const corazones = document.querySelectorAll(
 corazones.forEach((corazon) => {
     corazon.addEventListener("click", () => {
         corazon.style.transform = "scale(1.4)";
+
         setTimeout(() => {
             corazon.style.transform = "";
         }, 350);
     });
 });
 
-/* PARALLAX SUAVE */
+
+/* =========================================
+   PARALLAX SUAVE
+   ========================================= */
+
 const papel = document.querySelector(".papel");
 const flores = document.querySelector(".flores-fondo");
 
@@ -99,8 +127,11 @@ window.addEventListener(
         if (!papel || !flores) {
             return;
         }
+
         const scroll = window.scrollY;
-        flores.style.transform = `translateY(${scroll * 0.025}px)`;
+
+        flores.style.transform =
+            `translateY(${scroll * 0.025}px)`;
     },
     {
         passive: true
