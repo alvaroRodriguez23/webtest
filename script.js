@@ -3,6 +3,42 @@ const pantallaSobre = document.getElementById("sobre-pantalla");
 const carta = document.getElementById("carta");
 const elementos = document.querySelectorAll(".aparecer");
 
+
+
+
+const SUPABASE_URL = "https://rtbbnjliebmodfdaeves.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_FQGkNGgtAEkPcpMdo7iMXA_q-uiMXpH";
+
+
+async function registrarVisita() {
+    const dispositivo = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
+        ? "Móvil"
+        : "PC";
+
+    const navegador = navigator.userAgent;
+
+    const { error } = await supabase
+        .from("visitas")
+        .insert({
+            dispositivo: dispositivo,
+            navegador: navegador
+        });
+
+    if (error) {
+        console.error("Error registrando visita:", error);
+    } else {
+        console.log("Visita registrada correctamente");
+    }
+}
+
+registrarVisita();
+
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 /* BLOQUEAR SCROLL */
 document.body.style.overflow = "hidden";
 
